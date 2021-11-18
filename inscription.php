@@ -26,7 +26,7 @@ if(isset($_POST['inscription']))
         $loginError = "Veuillez renseigner votre login";
         echo $loginError;
     }
-    //Sinon si le login est renseigné, cherche dans la BDD si il existe déja.
+    //Cherche dans la BDD si le login existe déja.
     elseif(!empty($login)){
         $queryLogin = "SELECT `login`FROM `utilisateurs` WHERE `login` = '$login'";
         $result = mysqli_query($connect, $queryLogin);
@@ -35,22 +35,22 @@ if(isset($_POST['inscription']))
             echo $loginNotAvailable;
         }
     }
-    //Si prenom, nom, mdp et mdp pas renseigné erreur
-    elseif(empty($prenom) || empty($nom) || empty($password) || empty($passwordCheck)){
+    //Si prenom, nom, mdp et mdpCheck ne sont pas renseignés
+    if(empty($prenom) || empty($nom) || empty($password) || empty($passwordCheck)){
         $missingError = "Veuillez rensenseigner ce champs";
         echo $missingError;
     }
+    //Verifie que les deux password sont identiques
+    if($password != $passwordCheck){
+        $passwordError = "Veuillez renseigner le même mot de passe";
+        echo $passwordError;
+    }
 
-
-
-    // Si tu passes tout les tests, envoi la requete d'ajout utilisateur
+    // Si tout les testes sont passées, envoi la requete
     else {
-        // // Coditions pour que la requete soit effectué
-    // if($password == $passwordCheck){
-    //     // Requete SQL
-    //     $query = "INSERT INTO `utilisateurs`(`login`, `prenom`, `nom`, `password`) VALUES ('$login','$prenom','$nom', '$password')";
-    //     $requestAddUser = mysqli_query($connect, $query);
-    // }
+        // Requete SQL : envoi les données dans BDD
+        $query = "INSERT INTO `utilisateurs`(`login`, `prenom`, `nom`, `password`) VALUES ('$login','$prenom','$nom', '$password')";
+        $requestAddUser = mysqli_query($connect, $query);
     }
 }
 ?>
