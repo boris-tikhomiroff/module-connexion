@@ -22,7 +22,7 @@ if(isset($_POST['inscription']))
     $nom = htmlspecialchars($_POST['user_nom']);
     $password = htmlspecialchars($_POST['user_password']);
     $passwordCheck = htmlspecialchars($_POST['user_password_check']);    
-
+    $hashpassword = password_hash($password, PASSWORD_DEFAULT);
 
     
     // Si login n'est pas renseigné, afficher une erreur.
@@ -53,7 +53,7 @@ if(isset($_POST['inscription']))
     // Si tout les testes sont passées, envoi la requete
     else {
         // Requete SQL : envoi les données dans BDD
-        $query = "INSERT INTO `utilisateurs`(`login`, `prenom`, `nom`, `password`) VALUES ('$login','$prenom','$nom', '$password')";
+        $query = "INSERT INTO `utilisateurs`(`login`, `prenom`, `nom`, `password`) VALUES ('$login','$prenom','$nom', '$hashpassword')";
         $requestAddUser = mysqli_query($connect, $query);
     }
 }
