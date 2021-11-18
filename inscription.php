@@ -11,7 +11,7 @@ if($connect === false){
 }
 // Redirige vers l'accueil si une session est déja active
 if(isset($_SESSION['id'])) {
-    header('Location: home.php');
+    header('Location: index.php');
     exit();
 }
 // Stock les valeurs renseignées par l'utilisateurs
