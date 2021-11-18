@@ -9,7 +9,11 @@ mysqli_set_charset($connect, 'utf8');
 if($connect === false){
     die("ERREUR : Impossible de se connecter à la Base de données. " . mysqli_connect_error());
 }
-
+// Redirige vers l'accueil si une session est déja active
+if(isset($_SESSION['id'])) {
+    header('Location: home.php');
+    exit();
+}
 // Stock les valeurs renseignées par l'utilisateurs
 if(isset($_POST['inscription']))
 {
