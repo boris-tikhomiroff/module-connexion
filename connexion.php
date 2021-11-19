@@ -38,7 +38,7 @@ if(isset($_POST['connexion'])){
                 // on ouvre la session avec $_SESSION:
                 if($result['login']==='admin'){
                     $_SESSION['admin'] = $result;
-                    header('Location: admin.php');
+                    header('Location: index.php');
                     echo "je suis l'admin";
                 }
                 else{

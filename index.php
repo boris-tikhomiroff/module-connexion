@@ -31,9 +31,17 @@ if(isset($_POST['deconnexion'])){
                     ');
                 }
                 ?>
-                <li><a href="profile.php">Profil</a></li>
                 <?php if(!empty($_SESSION)){
-                    echo '<form action="" method="post"><input type="submit" name="deconnexion" value="deconnexion"></form>';
+                    echo ('
+                    <li><form action="" method="post"><input type="submit" name="deconnexion" value="deconnexion"></form></li>
+                    <li><a href="profile.php">Profil</a></li>
+
+                    ');
+                }
+                ?>
+                <?php
+                if(isset($_SESSION['admin'])){
+                    echo '<li><a href="admin.php">admin</a></li>';
                 }
                 ?>
             </ul>
