@@ -11,16 +11,16 @@ if($connect === false){
 }
 
 // Redirige vers la page de profile si une session est déja active
-if(!isset($_SESSION['login'])) {
-    header('Location: inscription.php');
+if(!isset($_SESSION['user'])) {
+    header('Location: connexion.php');
     // exit();
 }
 // Stockage des variables de session
-$login = $_SESSION['utilisateur']['login'];
-$prenom = $_SESSION['utilisateur']['prenom'];
-$nom = $_SESSION['utilisateur']['nom'];
-$password = $_SESSION['utilisateur']['password'];
-$userId = $_SESSION['utilisateur']['id'];
+$login = $_SESSION['user']['login'];
+$prenom = $_SESSION['user']['prenom'];
+$nom = $_SESSION['user']['nom'];
+$password = $_SESSION['user']['password'];
+$userId = $_SESSION['user']['id'];
 var_dump($userId);
 
 // si appuyer sur le boutton
@@ -59,13 +59,12 @@ if (isset($_POST['modification'])){
         $passwordError = "Veuillez renseigner le même mot de passe";
         echo $passwordError;
     }
-    
     // Si tout les testes sont passées, envoi la requete
     else {
         // Requete SQL : envoi les données dans BDD
-        $query = "UPDATE `utilisateurs` SET `login` = '$newLogin', `prenom` = '$newPrenom', `nom` = '$newNom', `password` = '$newPassword' WHERE `id` = '$userId' ";
+        $query = "UPDATE `utilisateurs` SET `login` = '$newLogin', `prenom` = '$newPrenom', `nom` = '$newNom', `password` = '$newHashpassword' WHERE `id` = '$userId' ";
         $requestChangeProfil = mysqli_query($connect, $query);
-        header('Location: index.php');
+        header('Location: connexion.php');
     }
 }
 ?>

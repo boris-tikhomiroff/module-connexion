@@ -1,9 +1,11 @@
 <?php
 session_start();
+var_dump($_SESSION);
+
 if(isset($_POST['deconnexion'])){
     session_destroy();
     echo "Vous êtes à présent déconnecté !";
-    header('Location: index.php');
+    header('Location: connexion.php');
 }
 ?>
 <!DOCTYPE html>
@@ -20,10 +22,20 @@ if(isset($_POST['deconnexion'])){
         <nav>
             <ul>
                 <li><a href="index.php">Accueil</a></li>
-                <li><a href="inscription.php">Inscription</a></li>
-                <li><a href="connexion.php">Connexion</a></li>
+                <?php
+                if(empty($_SESSION))
+                {
+                    echo ('
+                    <li><a href="inscription.php">Inscription</a></li>
+                    <li><a href="connexion.php">Connexion</a></li>
+                    ');
+                }
+                ?>
                 <li><a href="profile.php">Profil</a></li>
-                <li><form action="" method="post"><input type="submit" name="deconnexion" value="deconnexion"></form></li>
+                <?php if(!empty($_SESSION)){
+                    echo '<form action="" method="post"><input type="submit" name="deconnexion" value="deconnexion"></form>';
+                }
+                ?>
             </ul>
         </nav>
     </header>

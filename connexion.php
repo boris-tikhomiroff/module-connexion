@@ -2,9 +2,9 @@
 session_start();
 
 // Redirige vers la page de profile si une session est déja active
-if(isset($_SESSION['utilisateur'])) {
+if(isset($_SESSION['user'])) {
     header('Location: profil.php');
-    exit();}
+}
 
 if(isset($_POST['connexion'])){
     // on vérifie que le champ "Pseudo" n'est pas vide
@@ -36,18 +36,16 @@ if(isset($_POST['connexion'])){
             //Connexioin mot de passe hash
             elseif(password_verify($password, $check_password)) {
                 // on ouvre la session avec $_SESSION:
-                $_SESSION['login'] = $result;
-                echo "Vous êtes à présent connecté !";
-                var_dump($result['password']);
-                header('Location: profil.php');
-
-            }
-            // Connexion avec admin
-            else{
-                echo "Vous êtes à présent connecté !";
-                // header('Location: profil.php');
-                var_dump($result['password']);
-                header('Location: index.php');
+                if($result['login']==='admin'){
+                    $_SESSION['admin'] = $result;
+                    header('Location: admin.php');
+                    echo "je suis l'admin";
+                }
+                else{
+                    $_SESSION['user'] = $result;
+                    echo "Vous êtes à présent connecté !";
+                    header('Location: profil.php');
+                }
             }
         }
     }
@@ -57,6 +55,7 @@ if(isset($_POST['deconnexion'])){
     echo "Vous êtes à présent déconnecté !";
     header('Location: index.php');
 }
+var_dump($_SESSION);
 ?>
 
 <form action="" method="post">
@@ -66,7 +65,10 @@ if(isset($_POST['deconnexion'])){
     <label for="password">Mot de passe :</label>
     <input type="password" id="password" name="password">
     <input type="submit" name="connexion" value="connexion">
-    <input type="submit" name="deconnexion" value="deconnexion">
+    <?php if(isset($_SESSION)){
+        echo '<input type="submit" name="deconnexion" value="deconnexion">';
+    }
+    ?>
 </form>
 <button><a href="index.php">retour</a></button>
 <button><a href="inscription.php">Inscrivez-vous</a></button>
