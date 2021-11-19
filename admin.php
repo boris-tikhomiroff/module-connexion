@@ -10,6 +10,10 @@ if($connect === false){
 $requete = mysqli_query($connect,"SELECT * FROM `utilisateurs`");
 $data = mysqli_fetch_all($requete, MYSQLI_ASSOC);
 
+// Si appuyer sur le boutton
+if(isset($_POST['delete'])){
+    $query = mysqli_query($connect, "DELETE FROM `utilisateurs` WHERE id={$_POST['delete']}"); 
+}
 
 
 ?>
@@ -31,18 +35,10 @@ $data = mysqli_fetch_all($requete, MYSQLI_ASSOC);
                 <td><?= $datas['prenom'];?></td>
                 <td><?= $datas['nom'];?></td>
                 <td><?= $datas['password'];?></td>
-                <td><form action="" method="post"><input type="submit" name="delete" value="delete"></form></td>
+                <td><form action="" method="post"><button type="submit" name="delete" value="<?= $datas['id'];?>">delete</button></form></td>
             </tr>
         <?php endforeach;?>
 
-        // Test fonction delete     
-        <!-- <?php
-            if(isset($_POST['delete'])){
-                $id=$datas['id'];
-                $query = "DELETE FROM `utilisateurs` WHERE id='$id'"; 
-                $result = mysqli_query($connect,$query) or die ( mysqli_error());
-            }
-        ?> -->
     </tbody>
     
 </thead>
