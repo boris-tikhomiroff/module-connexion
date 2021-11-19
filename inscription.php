@@ -9,10 +9,10 @@ mysqli_set_charset($connect, 'utf8');
 if($connect === false){
     die("ERREUR : Impossible de se connecter à la Base de données. " . mysqli_connect_error());
 }
-// Redirige vers l'accueil si une session est déja active
-if(isset($_SESSION['id'])) {
+// Redirige vers la page de profile si une session est déja active
+if(isset($_SESSION['login'])) {
     header('Location: index.php');
-    exit();
+    // exit();
 }
 // Stock les valeurs renseignées par l'utilisateurs
 if(isset($_POST['inscription']))
@@ -55,6 +55,7 @@ if(isset($_POST['inscription']))
         // Requete SQL : envoi les données dans BDD
         $query = "INSERT INTO `utilisateurs`(`login`, `prenom`, `nom`, `password`) VALUES ('$login','$prenom','$nom', '$hashpassword')";
         $requestAddUser = mysqli_query($connect, $query);
+        header('Location: connexion.php');
     }
 }
 ?>
@@ -80,5 +81,7 @@ if(isset($_POST['inscription']))
         <input type="password" id="mdp2" name="user_password_check">
         <button type="submit" name="inscription">Inscription</button>
     </form>
+
+    <button><a href="index.php">retour</a></button>
 </body>
 </html>

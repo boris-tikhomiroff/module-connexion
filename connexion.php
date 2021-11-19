@@ -1,6 +1,11 @@
 <?php
 session_start();
 
+// Redirige vers la page de profile si une session est déja active
+if(isset($_SESSION['utilisateur'])) {
+    header('Location: profil.php');
+    exit();}
+
 if(isset($_POST['connexion'])){
     // on vérifie que le champ "Pseudo" n'est pas vide
     if (empty($_POST['username'])){
@@ -31,19 +36,18 @@ if(isset($_POST['connexion'])){
             //Connexioin mot de passe hash
             elseif(password_verify($password, $check_password)) {
                 // on ouvre la session avec $_SESSION:
-                $_SESSION['user'] = $result;
+                $_SESSION['login'] = $result;
                 echo "Vous êtes à présent connecté !";
                 var_dump($result['password']);
+                header('Location: profil.php');
 
-                // var_dump($_SESSION);
-                header('Location: index.php');
             }
             // Connexion avec admin
             else{
                 echo "Vous êtes à présent connecté !";
-                header('Location: index.php');
+                // header('Location: profil.php');
                 var_dump($result['password']);
-                
+                header('Location: index.php');
             }
         }
     }
@@ -51,6 +55,7 @@ if(isset($_POST['connexion'])){
 if(isset($_POST['deconnexion'])){
     session_destroy();
     echo "Vous êtes à présent déconnecté !";
+    header('Location: index.php');
 }
 ?>
 
@@ -59,8 +64,9 @@ if(isset($_POST['deconnexion'])){
     <label for="username">Username :</label>
     <input type="text" id="username" name="username">
     <label for="password">Mot de passe :</label>
-    <input type="" id="password" name="password">
+    <input type="password" id="password" name="password">
     <input type="submit" name="connexion" value="connexion">
     <input type="submit" name="deconnexion" value="deconnexion">
 </form>
-
+<button><a href="index.php">retour</a></button>
+<button><a href="inscription.php">Inscrivez-vous</a></button>
