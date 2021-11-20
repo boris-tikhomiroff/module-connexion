@@ -10,11 +10,12 @@ if($connect === false){
     die("ERREUR : Impossible de se connecter à la Base de données. " . mysqli_connect_error());
 }
 
-// Redirige vers la page de profile si une session est déja active
-if(!isset($_SESSION['user'])) {
-    header('Location: connexion.php');
-    // exit();
-}
+// // Redirige vers la page de profil si une session user est déja active
+// if(!isset($_SESSION)) {
+//     header('Location: connexion.php');
+//     // exit();
+// }
+
 // Stockage des variables de session
 $login = $_SESSION['user']['login'];
 $prenom = $_SESSION['user']['prenom'];

@@ -1,6 +1,6 @@
 <?php
 session_start();
-var_dump($_SESSION);
+// var_dump($_SESSION);
 
 if(isset($_POST['deconnexion'])){
     session_destroy();
@@ -15,7 +15,7 @@ if(isset($_POST['deconnexion'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page d'accueil de mon site</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
     <header>
@@ -34,7 +34,7 @@ if(isset($_POST['deconnexion'])){
                 <?php if(!empty($_SESSION)){
                     echo ('
                     <li><form action="" method="post"><input type="submit" name="deconnexion" value="deconnexion"></form></li>
-                    <li><a href="profile.php">Profil</a></li>
+                    <li><a href="profil.php">Profil</a></li>
 
                     ');
                 }

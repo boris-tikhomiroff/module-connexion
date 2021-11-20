@@ -5,6 +5,7 @@ session_start();
 // Connexion à la BDD
 $connect = mysqli_connect('localhost', 'root','','moduleconnexion');
 mysqli_set_charset($connect, 'utf8');
+
 //Vérifie la connexion à la BDD
 if($connect === false){
     die("ERREUR : Impossible de se connecter à la Base de données. " . mysqli_connect_error());
@@ -27,28 +28,28 @@ if(isset($_POST['inscription']))
     
     // Si login n'est pas renseigné, afficher une erreur.
     if(empty($login)){
-        $loginError = "Veuillez renseigner votre login";
-        echo $loginError;
+        $loginError = "*Veuillez renseigner votre login";
+        // echo $loginError;
     }
     //Cherche dans la BDD si le login existe déja.
     elseif(!empty($login)){
         $queryLogin = "SELECT `login`FROM `utilisateurs` WHERE `login` = '$login'";
         $result = mysqli_query($connect, $queryLogin);
         if(mysqli_num_rows($result) > 0){
-            $loginNotAvailable = "Le login n'est pas disponible";
-            echo $loginNotAvailable;
+            $loginNotAvailable = "*Le login n'est pas disponible";
+            // echo $loginNotAvailable;
         }
     }
 
      //Verifie que les deux password sont identiques
      if (empty($password)){
-        $passwordError = "Veuillez renseigner un mot de passe";
-        echo $passwordError;
+        $passwordError = "*Veuillez renseigner un mot de passe";
+        // echo $passwordError;
      }
      elseif($password !== $passwordCheck){
-         $passwordError2 = "Veuillez renseigner le même mot de passe";
-         echo $passwordError2;
-         echo "hi";
+         $passwordError2 = "*Veuillez renseigner le même mot de passe";
+        //  echo $passwordError2;
+        //  echo "hi";
      }
 
     // Si tout les testes sont passées, envoi la requete
@@ -72,16 +73,30 @@ if(isset($_POST['inscription']))
 </head>
 <body>
     <form method="post" action="">
+        <div>
         <label for="login">Login :</label>
         <input type="text" id="login" name="user_login">
+        <span class="error"><?php if (isset($loginError)) echo '<br/>'.$loginError?></span>
+        <span class="error"><?php if (isset($loginNotAvailable)) echo '<br/>'.$loginNotAvailable?></span>
+        </div>
+        <div>
         <label for="prenom">Prenom :</label>
         <input type="text" id="prenom" name="user_prenom">
+        </div>
+        <div>
         <label for="nom">Nom :</label>
         <input type="text" id="nom" name="user_nom">
+        </div>
+        <div>
         <label for="mdp">Mot de passe :</label>
         <input type="password" id="mdp" name="user_password">
+        <span class="error"><?php if (isset($passwordError)) echo '<br/>'.$passwordError?></span>
+        </div>
+        <div>
         <label for="mdp2">Confirmez votre mot de passe :</label>
         <input type="password" id="mdp2" name="user_password_check">
+        <span class="error"><?php if (isset($passwordError2)) echo '<br/>'.$passwordError2?></span>
+        </div>
         <button type="submit" name="inscription">Inscription</button>
     </form>
 

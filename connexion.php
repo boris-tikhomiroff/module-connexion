@@ -9,8 +9,8 @@ if(isset($_SESSION['user'])) {
 if(isset($_POST['connexion'])){
     // on vérifie que le champ "Pseudo" n'est pas vide
     if (empty($_POST['username'])){
-        $usernameError = "Veuillez renseigner l'username.";
-        echo $usernameError;
+        $usernameError = "*Veuillez renseigner l'username.";
+        // echo $usernameError;
     }
     else{
         // les champs sont bien posté et pas vide, on sécurise les données entrées par le membre:
@@ -31,7 +31,8 @@ if(isset($_POST['connexion'])){
             // var_dump($result['password']);
             if(mysqli_num_rows($requete) == 0) 
                 {
-                    echo "Le pseudo ou le mot de passe est incorrect, le compte n'a pas été trouvé.";
+                    $matchError ="*Le pseudo ou le mot de passe est incorrect, le compte n'a pas été trouvé.";
+                    // echo $matchError;
                 }
             //Connexioin mot de passe hash
             elseif(password_verify($password, $check_password)) {
@@ -55,15 +56,21 @@ if(isset($_POST['deconnexion'])){
     echo "Vous êtes à présent déconnecté !";
     header('Location: index.php');
 }
-var_dump($_SESSION);
+// var_dump($_SESSION);
 ?>
 
 <form action="" method="post">
     <h1>Connexion</h1>
-    <label for="username">Username :</label>
-    <input type="text" id="username" name="username">
-    <label for="password">Mot de passe :</label>
-    <input type="password" id="password" name="password">
+    <div>
+        <label for="username">Username :</label>
+        <input type="text" id="username" name="username">
+        <span class="error"><?php if (isset($usernameError)) echo '<br/>'.$usernameError?></span>
+    </div>
+    <div>
+        <label for="password">Mot de passe :</label>
+        <input type="password" id="password" name="password">
+        <span class="error"><?php if (isset($matchError)) echo '<br/>'.$matchError?></span>
+    </div>
     <input type="submit" name="connexion" value="connexion">
     <?php if(isset($_SESSION)){
         echo '<input type="submit" name="deconnexion" value="deconnexion">';
