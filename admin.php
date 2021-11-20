@@ -17,29 +17,41 @@ if(isset($_POST['delete'])){
 
 
 ?>
-<table>
-<thead>
-    <tr>
-        <th>id</th>
-        <th>login</th>
-        <th>prenom</th>
-        <th>nom</th>
-        <th>password</th>
-    </tr>
-    <form action="" >
-        <?php
-            foreach($data as $datas):?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <thead>
             <tr>
-                <td><?= $datas['id'];?></td>
-                <td><?= $datas['login'];?></td>
-                <td><?= $datas['prenom'];?></td>
-                <td><?= $datas['nom'];?></td>
-                <td><?= $datas['password'];?></td>
-                <td><form action="" method="post"><button type="submit" name="delete" value="<?= $datas['id'];?>">delete</button></form></td>
+                <th>id</th>
+                <th>login</th>
+                <th>prenom</th>
+                <th>nom</th>
+                <th>password</th>
             </tr>
-        <?php endforeach;?>
+        </thead>
+        <tbody>
+            <form action="" >
+                <?php
+                    foreach($data as $datas):?>
+                    <tr>
+                        <td><?= $datas['id'];?></td>
+                        <td><?= $datas['login'];?></td>
+                        <td><?= $datas['prenom'];?></td>
+                        <td><?= $datas['nom'];?></td>
+                        <td><?= $datas['password'];?></td>
+                        <td><form action="" method="post"><button type="submit" name="delete" value="<?= $datas['id'];?>">delete</button></form></td>
+                    </tr>
+                <?php endforeach;?>
+        </tbody>     
+    </table>
+    <a href="index.php">Retour à l'accueil</a>
+</body>
+</html>
 
-    </tbody>
-    
-</thead>
-</table>

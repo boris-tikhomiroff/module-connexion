@@ -39,16 +39,17 @@ if(isset($_POST['inscription']))
             echo $loginNotAvailable;
         }
     }
-    //Si prenom, nom, mdp et mdpCheck ne sont pas renseignés
-    if(empty($prenom) || empty($nom) || empty($password) || empty($passwordCheck)){
-        $missingError = "Veuillez rensenseigner ce champs";
-        echo $missingError;
-    }
-    //Verifie que les deux password sont identiques
-    if($password != $passwordCheck){
-        $passwordError = "Veuillez renseigner le même mot de passe";
+
+     //Verifie que les deux password sont identiques
+     if (empty($password)){
+        $passwordError = "Veuillez renseigner un mot de passe";
         echo $passwordError;
-    }
+     }
+     elseif($password !== $passwordCheck){
+         $passwordError2 = "Veuillez renseigner le même mot de passe";
+         echo $passwordError2;
+         echo "hi";
+     }
 
     // Si tout les testes sont passées, envoi la requete
     else {
@@ -56,6 +57,8 @@ if(isset($_POST['inscription']))
         $query = "INSERT INTO `utilisateurs`(`login`, `prenom`, `nom`, `password`) VALUES ('$login','$prenom','$nom', '$hashpassword')";
         $requestAddUser = mysqli_query($connect, $query);
         header('Location: connexion.php');
+        echo "ok";
+        var_dump($_POST);
     }
 }
 ?>
