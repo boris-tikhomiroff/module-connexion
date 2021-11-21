@@ -58,24 +58,39 @@ if(isset($_POST['deconnexion'])){
 }
 // var_dump($_SESSION);
 ?>
-
-<form action="" method="post">
-    <h1>Connexion</h1>
-    <div>
-        <label for="username">Username :</label>
-        <input type="text" id="username" name="username">
-        <span class="error"><?php if (isset($usernameError)) echo '<br/>'.$usernameError?></span>
-    </div>
-    <div>
-        <label for="password">Mot de passe :</label>
-        <input type="password" id="password" name="password">
-        <span class="error"><?php if (isset($matchError)) echo '<br/>'.$matchError?></span>
-    </div>
-    <input type="submit" name="connexion" value="connexion">
-    <?php if(isset($_SESSION)){
-        echo '<input type="submit" name="deconnexion" value="deconnexion">';
-    }
-    ?>
-</form>
-<button><a href="index.php">retour</a></button>
-<button><a href="inscription.php">Inscrivez-vous</a></button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <form action="" method="post">
+        <h1>Connexion</h1>
+        <div>
+            <label for="username">Username :</label>
+            <input type="text" id="username" name="username">
+            <span class="error"><?php if (isset($usernameError)) echo '<br/>'.$usernameError?></span>
+        </div>
+        <div>
+            <label for="password">Mot de passe :</label>
+            <input type="password" id="password" name="password">
+            <span class="error"><?php if (isset($matchError)) echo '<br/>'.$matchError?></span>
+        </div>
+        <input type="submit" name="connexion" value="connexion">
+        <?php if(isset($_SESSION)){
+            echo '<input type="submit" name="deconnexion" value="deconnexion">';
+        }
+        ?>
+    </form>
+    <button><a href="index.php">retour</a></button>
+    <button><a href="inscription.php">Inscrivez-vous</a></button>
+</body>
+</html>
