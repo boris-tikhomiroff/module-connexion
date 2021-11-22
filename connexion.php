@@ -64,33 +64,50 @@ if(isset($_POST['deconnexion'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Mon site || Connexion</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
 </head>
 <body>
-    
-    <form action="" method="post">
-        <h1>Connexion</h1>
-        <div>
-            <label for="username">Username :</label>
-            <input type="text" id="username" name="username">
-            <span class="error"><?php if (isset($usernameError)) echo '<br/>'.$usernameError?></span>
+    <header>
+        <div class="signature">
+            <p>Boris Tikhomiroff</p>
+            <img src="./Images/timer.png" alt="">
         </div>
-        <div>
-            <label for="password">Mot de passe :</label>
-            <input type="password" id="password" name="password">
-            <span class="error"><?php if (isset($matchError)) echo '<br/>'.$matchError?></span>
+        <div class="marquee">
+            <div class="currentDate">
+                <?php
+                    $date = date("D M j G:i T Y");
+                    echo $date;
+                ?>
+            </div>
         </div>
-        <input type="submit" name="connexion" value="connexion">
-        <?php if(isset($_SESSION)){
-            echo '<input type="submit" name="deconnexion" value="deconnexion">';
-        }
-        ?>
-    </form>
-    <button><a href="index.php">retour</a></button>
-    <button><a href="inscription.php">Inscrivez-vous</a></button>
+    </header>
+    <main class="connexion_main">
+        <form action="" method="post" class="form connexion">
+            <h1>Connexion</h1>
+            <div>
+                <label for="username"></label>
+                <input type="text" id="username" name="username" placeholder="Username">
+                <span class="error" id="test"><?php if (isset($usernameError)) echo '<br/>'.$usernameError?></span>
+            </div>
+            <div>
+                <label for="password"></label>
+                <input type="password" id="password" name="password" placeholder="Password">
+                <span class="error"><?php if (isset($matchError)) echo '<br/>'.$matchError?></span>
+            </div>
+            <input type="submit" name="connexion" value="connexion" class="connexion_btn">
+            <!-- <?php if(isset($_SESSION)){
+                echo '<input type="submit" name="deconnexion" value="deconnexion">';
+            }
+            ?> -->
+        </form>
+        <nav class="connexion_nav">
+            <button><a href="index.php">retour</a></button>
+            <button><a href="inscription.php">Inscrivez-vous</a></button>
+        </nav>
+    </main>
 </body>
 </html>

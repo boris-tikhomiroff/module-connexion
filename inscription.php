@@ -70,36 +70,63 @@ if(isset($_POST['inscription']))
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mon site || Formulaire d'inscription</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
 </head>
 <body>
-    <form method="post" action="">
-        <div>
-        <label for="login">Login :</label>
-        <input type="text" id="login" name="user_login">
-        <span class="error"><?php if (isset($loginError)) echo '<br/>'.$loginError?></span>
-        <span class="error"><?php if (isset($loginNotAvailable)) echo '<br/>'.$loginNotAvailable?></span>
+<header>
+        <div class="signature">
+            <p>Boris Tikhomiroff</p>
+            <img src="./Images/timer.png" alt="">
         </div>
-        <div>
-        <label for="prenom">Prenom :</label>
-        <input type="text" id="prenom" name="user_prenom">
+        <div class="marquee">
+            <div class="currentDate">
+                <?php
+                    $date = date("D M j G:i T Y");
+                    echo $date;
+                ?>
+            </div>
         </div>
-        <div>
-        <label for="nom">Nom :</label>
-        <input type="text" id="nom" name="user_nom">
-        </div>
-        <div>
-        <label for="mdp">Mot de passe :</label>
-        <input type="password" id="mdp" name="user_password">
-        <span class="error"><?php if (isset($passwordError)) echo '<br/>'.$passwordError?></span>
-        </div>
-        <div>
-        <label for="mdp2">Confirmez votre mot de passe :</label>
-        <input type="password" id="mdp2" name="user_password_check">
-        <span class="error"><?php if (isset($passwordError2)) echo '<br/>'.$passwordError2?></span>
-        </div>
-        <button type="submit" name="inscription">Inscription</button>
-    </form>
+    </header>
+    <main class="inscription_main main">
+        <form method="post" action="" class="form inscription">
+            <h1>Inscription</h1>
+            <div>
+                <label for="login"></label>
+                <input type="text" id="login" name="user_login" placeholder="Login">
+                <span class="error"><?php if (isset($loginError)) echo '<br/>'.$loginError?></span>
+                <span class="error"><?php if (isset($loginNotAvailable)) echo '<br/>'.$loginNotAvailable?></span>
+            </div>
 
-    <button><a href="index.php">retour</a></button>
+            <div>
+                <label for="prenom"></label>
+                <input type="text" id="prenom" name="user_prenom" placeholder="Prenom">
+            </div>
+
+            <div>
+                <label for="nom"></label>
+                <input type="text" id="nom" name="user_nom" placeholder="Nom">
+            </div>
+
+            <div>
+                <label for="mdp"></label>
+                <input type="password" id="mdp" name="user_password" placeholder="mot de passe">
+                <span class="error"><?php if (isset($passwordError)) echo '<br/>'.$passwordError?></span>
+            </div>
+
+            <div>
+                <label for="mdp2"></label>
+                <input type="password" id="mdp2" name="user_password_check" placeholder="Confirmez votre mot de passe">
+                <span class="error"><?php if (isset($passwordError2)) echo '<br/>'.$passwordError2?></span>
+            </div>
+            
+            <button type="submit" name="inscription" class="inscription_btn">Inscription</button>
+        </form>
+        <nav class="inscription_nav">
+            <button ><a href="index.php">retour</a></button>
+        <nav>
+    </main>
 </body>
 </html>

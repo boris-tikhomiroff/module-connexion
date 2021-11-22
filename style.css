@@ -1,3 +1,17 @@
+/* 
+    I . Reset
+    II. Page d'Accueil
+        1.Header
+        2.
+        3.
+
+    III. Page de Connexion
+    
+    IV. Page inscription
+
+*/
+
+    /* I . Reset */
 *{
     margin: 0;
     padding: 0;
@@ -19,6 +33,8 @@ body {
 a:visited {
     color: black;
 }
+
+    /* II. Page d'accueil */
 
 .signature {
     width: 100vw;
@@ -57,7 +73,6 @@ a:visited {
 }
 
 .currentDate {
-    /* width: 100vw; */
     font-size: 16px;
     animation: marquee 15s linear infinite;
 }
@@ -71,7 +86,6 @@ a:visited {
     display: grid;
     grid-template-rows: repeat(24, 1fr);
     grid-template-columns: repeat(24, 1fr);
-    /* background-color: red; */
     background-color: rgb(219, 183, 250);
     height: 93vh;
     width: 100vw;
@@ -124,7 +138,6 @@ a:visited {
 
 .icon {
     border-bottom: solid black 2px;
-    /* background-color: rgb(255, 251, 245); */
     height: 10%;
     width: 100%;
     grid-row: 7 / 8;
@@ -139,12 +152,10 @@ a:visited {
     height: 15px;
 }
 
-main {
+/* main {
     width: 100vw;
     height: 100vh;
-}
-
-.cta {}
+} */
 
 .starbust {
     /* height: 200px;
@@ -155,12 +166,12 @@ main {
     top: 16%;
     left: 31%;
     z-index: 5;
-    animation: cta 2s linear infinite;
+    animation: cta 1s infinite;
 }
 
 @keyframes cta {
     0% {filter: saturate(50%);}
-    50% {filter: saturate(344%);}
+    50% {filter: saturate(500%);}
     100% {filter: saturate(50%);}
 }
 
@@ -172,4 +183,436 @@ main {
     font-size: 2em;
     transform: rotate(13deg);
     color: rgb(173, 32, 32);
+}
+
+.mosaic {
+    display: grid;
+    grid-column: 14 / 24;
+    grid-row: 3 / 23;
+    border: rgb(66, 46, 172);
+    height: 100%;
+    width: 100%;
+    grid-template-columns: repeat(24, 1fr);
+    grid-template-rows: repeat(24, 1fr);
+}
+
+.mosaic_gallery {
+    border: rgb(56, 46, 197) solid 3px;
+    z-index: 3;
+}
+
+.acid_house {
+    grid-column: 2 / 8;
+    grid-row: 2 / 8;
+    width: 100%;
+    height: 100%;
+}
+
+.deux {
+    grid-column: 2 / 8;
+    grid-row: 10 / 16;
+    width: 100%;
+    height: 100%;
+}
+
+.trois{
+    grid-column: 2 / 8;
+    grid-row: 18 / 24;
+    width: 100%;
+    height: 100%;
+}
+.quatre{
+    grid-column: 10 / 16;
+    grid-row: 2 / 8;
+    width: 100%;
+    height: 100%;
+}
+.cinq{
+    grid-column: 10 / 16;
+    grid-row: 10 / 16;
+    width: 100%;
+    height: 100%;
+}
+.six{
+    grid-column: 10 / 16;
+    grid-row: 18 / 24;
+    width: 100%;
+    height: 100%;
+}
+
+.sept{
+    grid-column: 18 / 24;
+    grid-row: 2 / 8;
+    width: 100%;
+    height: 100%;
+}
+.tv{
+    grid-column: 18 / 24;
+    grid-row: 10 / 16;
+    width: 100%;
+    height: 100%;
+}
+
+.neuf{
+    grid-column: 18 / 24;
+    grid-row: 18 / 24;
+    width: 100%;
+    height: 100%;
+}
+
+.mosaic img {
+    height: 100%;
+    width: 100% ;
+}
+
+/* STACK MOSAIQUE */
+.stack1_mosaic1 {
+    grid-column: 2 / 8;
+    grid-row: 2 / 8;
+    width: 100%;
+    height: 100%;
+    border: rgb(56, 46, 197) solid 3px;
+    /* transform: translate(6px, 6px); */
+    transform: translate(4%, 4%);
+    z-index: 2;
+    background-color: rgb(219, 183, 250);
+}
+.stack2_mosaic1 {
+    grid-column: 2 / 8;
+    grid-row: 2 / 8;
+    width: 100%;
+    height: 100%;
+    border: rgb(56, 46, 197) solid 3px;
+    transform: translate(8%, 8%);
+    z-index: 1;
+    background-color: rgb(219, 183, 250);
+
+}
+.stack1_mosaic2 {
+    grid-column: 2 / 8;
+    grid-row: 10 / 16;
+    width: 100%;
+    height: 100%;
+    border: rgb(56, 46, 197) solid 3px;
+    transform: translate(4%, 4%);
+    z-index: 2;
+    background-color: rgb(219, 183, 250);
+
+}
+.stack2_mosaic2 {
+    grid-column: 2 / 8;
+    grid-row: 10 / 16;
+    width: 100%;
+    height: 100%;
+    border: rgb(56, 46, 197) solid 3px;
+    transform: translate(8%, 8%);
+    z-index: 1;
+}
+
+.stack1_mosaic3 {
+    grid-column: 2 / 8;
+    grid-row: 18 / 24;
+    width: 100%;
+    height: 100%;
+    border: rgb(56, 46, 197) solid 3px;
+    transform: translate(4%, 4%);
+    z-index: 2;
+    background-color: rgb(219, 183, 250);
+}
+.stack2_mosaic3 {
+    grid-column: 2 / 8;
+    grid-row: 18 / 24;
+    width: 100%;
+    height: 100%;
+    border: rgb(56, 46, 197) solid 3px;
+    transform: translate(8%, 8%);
+    z-index: 1;
+}
+
+.stack1_mosaic4 {
+    grid-column: 10 / 16;
+    grid-row: 2 / 8;
+    width: 100%;
+    height: 100%;
+    border: rgb(56, 46, 197) solid 3px;
+    transform: translate(4%, 4%);
+    z-index: 2;
+    background-color: rgb(219, 183, 250);
+}
+.stack2_mosaic4 {
+    grid-column: 10 / 16;
+    grid-row: 2 / 8;
+    width: 100%;
+    height: 100%;
+    border: rgb(56, 46, 197) solid 3px;
+    transform: translate(8%, 8%);
+    z-index: 1;
+}
+
+.stack1_mosaic5 {
+    grid-column: 10 / 16;
+    grid-row: 10 / 16;
+    width: 100%;
+    height: 100%;
+    border: rgb(56, 46, 197) solid 3px;
+    transform: translate(4%, 4%);
+    z-index: 2;
+    background-color: rgb(219, 183, 250);
+}
+.stack2_mosaic5 {
+    grid-column: 10 / 16;
+    grid-row: 10 / 16;
+    width: 100%;
+    height: 100%;
+    border: rgb(56, 46, 197) solid 3px;
+    transform: translate(8%, 8%);
+    z-index: 1;
+}
+
+.stack1_mosaic6 {
+    grid-column: 10 / 16;
+    grid-row: 18 / 24;
+    width: 100%;
+    height: 100%;
+    border: rgb(56, 46, 197) solid 3px;
+    transform: translate(4%, 4%);
+    z-index: 2;
+    background-color: rgb(219, 183, 250);
+}
+.stack2_mosaic6 {
+    grid-column: 10 / 16;
+    grid-row: 18 / 24;
+    width: 100%;
+    height: 100%;
+    border: rgb(56, 46, 197) solid 3px;
+    transform: translate(8%, 8%);
+    z-index: 1;
+}
+
+.stack1_mosaic7 {
+    grid-column: 18 / 24;
+    grid-row: 2 / 8;
+    width: 100%;
+    height: 100%;
+    border: rgb(56, 46, 197) solid 3px;
+    transform: translate(4%, 4%);
+    z-index: 2;
+    background-color: rgb(219, 183, 250);
+}
+.stack2_mosaic7 {
+    grid-column: 18 / 24;
+    grid-row: 2 / 8;
+    width: 100%;
+    height: 100%;
+    border: rgb(56, 46, 197) solid 3px;
+    transform: translate(8%, 8%);
+    z-index: 1;
+}
+
+.stack1_mosaic8 {
+    grid-column: 18 / 24;
+    grid-row: 10 / 16;
+    width: 100%;
+    height: 100%;
+    border: rgb(56, 46, 197) solid 3px;
+    transform: translate(4%, 4%);
+    z-index: 2;
+    background-color: rgb(219, 183, 250);
+}
+.stack2_mosaic8 {
+    grid-column: 18 / 24;
+    grid-row: 10 / 16;
+    width: 100%;
+    height: 100%;
+    border: rgb(56, 46, 197) solid 3px;
+    transform: translate(8%, 8%);
+    z-index: 1;
+}
+
+.stack1_mosaic9 {
+    grid-column: 18 / 24;
+    grid-row: 18 / 24;
+    width: 100%;
+    height: 100%;
+    border: rgb(56, 46, 197) solid 3px;
+    transform: translate(4%, 4%);
+    z-index: 2;
+    background-color: rgb(219, 183, 250);
+}
+.stack2_mosaic9 {
+    grid-column: 18 / 24;
+    grid-row: 18 / 24;
+    width: 100%;
+    height: 100%;
+    border: rgb(56, 46, 197) solid 3px;
+    transform: translate(8%, 8%);
+    z-index: 1;
+}
+
+.github {
+    grid-column: 2 / 5;
+    grid-row: 24 / 25;
+    height: 1%;
+    width: 1%;
+    font-size: 15px;
+}
+
+.github section {
+    display: flex;
+    width: 10vw;
+}
+
+.github img {
+    height: 30px;
+    width: 30px;
+    margin-left: 7%;
+    transform: translate(0, -25%);
+}
+
+        /* II. Page d'Accueil */
+
+
+.connexion_main {
+    height: 93vh;
+    width: 100vw;
+    background-color: rgb(229, 204, 226);
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+    flex-direction: column;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+    flex-direction: column;
+    box-shadow: 5px 4px 0px 1px rgba(209, 156, 219, 0.8);
+    height: 50%;
+    width: 50%;
+}
+
+.form input {
+    font-family: 'VT323', monospace;
+    border-top: none;
+    border-left: none;
+    /* border-right: none; */
+    font-size: 1em;
+    margin-bottom: 5%;
+    
+}
+
+.connexion {
+    /* height: 50%;
+    width: 50%; */
+    border: solid 2px #EAF48E;
+}
+
+.connexion input{
+    background-color: rgb(229, 204, 226);
+    margin-top: 5%;
+}
+
+.connexion h1 {
+    -webkit-text-stroke: 2px black;
+    color: yellow;
+    font-size: 3em;
+}
+
+.connexion_btn {
+    cursor: pointer;
+    border-right: 3px solid black;
+    box-shadow: 5px 4px 0px 1px rgba(231, 255, 124, 0.8);
+}
+
+.connexion_nav button {
+    font-family: 'VT323', monospace;
+    border: none;
+    background-color: rgb(229, 204, 226);
+    transform: translate(0, 1000%);
+}
+
+.error {
+    font-size: 30%;
+    /* margin: 0; */
+    color: red;
+    position: absolute;
+    /* transform: translate(-220%, 250%); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+            /* IV. Page inscription */
+
+.main {
+    background-color: rgb(134, 224, 211);
+}
+
+.inscription_main {
+    height: 93vh;
+    width: 100vw;
+    /* background-color: rgb(229, 204, 226); */
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+    flex-direction: column;
+}
+
+.inscription {
+    height: 70%;
+    margin-bottom: 8%;
+    /* margin-top: 5%; */
+}
+
+.inscription input{
+    background-color: rgb(134, 224, 211);
+    margin-top: 5%;
+}
+
+.inscription h1 {
+    -webkit-text-stroke: 2px black;
+    color: yellow;
+    font-size: 3em;
+}
+
+.inscription_btn {
+    cursor: pointer;
+    background-color: rgb(134, 224, 211);
+    border: none;
+    padding: 1%;
+    border-right: 3px solid black;
+    border-bottom: 3px solid black;
+    /* box-shadow: 5px 4px 0px 1px rgba(231, 255, 124, 0.8); */
+    margin-top: 5%;
+}
+
+.inscription_nav button {
+    font-family: 'VT323', monospace;
+    border: none;
+    background-color: rgb(229, 204, 226);
+}
+
+.profil_main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.main_admin {
+    color: rgb(0, 160, 0);
+    background-color: black;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+
+.main_admin a {
+    color: rgb(0, 160, 0);
+    margin-top: 15%;
 }

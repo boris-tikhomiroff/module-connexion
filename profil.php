@@ -22,7 +22,7 @@ $prenom = $_SESSION['user']['prenom'];
 $nom = $_SESSION['user']['nom'];
 $password = $_SESSION['user']['password'];
 $userId = $_SESSION['user']['id'];
-var_dump($userId);
+// var_dump($userId);
 
 // si appuyer sur le boutton
 // var_dump($_SESSION);
@@ -77,21 +77,41 @@ if (isset($_POST['modification'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
 </head>
 <body>
-<form method="post" action="">
-        <label for="login">Nouveau Login :</label>
-        <input type="text" id="login" name="user_login" value="<?php echo $login;?>">
-        <label for="prenom">Nouveau Prenom :</label>
-        <input type="text" id="prenom" name="user_prenom" value="<?php echo $prenom;?>">
-        <label for="nom">Nouveau Nom :</label>
-        <input type="text" id="nom" name="user_nom" value="<?php echo $nom;?>">
-        <label for="mdp">Nouveau Mot de passe :</label>
-        <input type="password" id="mdp" name="user_password">
-        <label for="mdp2">Confirmez votre mot de passe :</label>
-        <input type="password" id="mdp2" name="user_password_check">
-        <button type="submit" name="modification">Modification</button>
-    </form>
-    <button><a href="index.php">retour</a></button>
+<header>
+        <div class="signature">
+            <p>Boris Tikhomiroff</p>
+            <img src="./Images/timer.png" alt="">
+        </div>
+        <div class="marquee">
+            <div class="currentDate">
+                <?php
+                    $date = date("D M j G:i T Y");
+                    echo $date;
+                ?>
+            </div>
+        </div>
+    </header>
+    <main class="profil_main">
+        <form method="post" action="" class="form">
+            <label for="login">Nouveau Login :</label>
+            <input type="text" id="login" name="user_login" value="<?php echo $login;?>">
+            <label for="prenom">Nouveau Prenom :</label>
+            <input type="text" id="prenom" name="user_prenom" value="<?php echo $prenom;?>">
+            <label for="nom">Nouveau Nom :</label>
+            <input type="text" id="nom" name="user_nom" value="<?php echo $nom;?>">
+            <label for="mdp">Nouveau Mot de passe :</label>
+            <input type="password" id="mdp" name="user_password">
+            <label for="mdp2">Confirmez votre mot de passe :</label>
+            <input type="password" id="mdp2" name="user_password_check">
+            <button type="submit" name="modification">Modification</button>
+        </form>
+        <button><a href="index.php">retour</a></button>
+    </main>
 </body>
 </html>

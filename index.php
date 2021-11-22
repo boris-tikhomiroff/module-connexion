@@ -15,7 +15,7 @@ if(isset($_POST['deconnexion'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page d'accueil de mon site</title>
+    <title>Mon site || Accueil</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -73,11 +73,70 @@ if(isset($_POST['deconnexion'])){
             <h1 class="cta_title">GO!</h1>
             <img src="./Images/kisspng-starburst-free-content-clip-art-burst-cliparts-5aa9a4c161c043.2772326815210672014004.png"  class="starbust" alt="">
         </div>
-    </header>
-    <main>
-    </main>
-    <footer>
+        <article class="mosaic">
+            <section class="mosaic_gallery acid_house">
+                <img src="./Images/acid_house.jpg" alt="">
+            </section>
+            <div class="stack1_mosaic1"></div>
+            <div class="stack2_mosaic1"></div>
 
+            <section class="mosaic_gallery deux">
+                <img src="./Images/kruger.png" alt="">
+            </section>
+            <div class="stack1_mosaic2"></div>
+            <div class="stack2_mosaic2"></div>
+
+            <section class="mosaic_gallery trois">
+            <img src="./Images/ms_20_synth.jpg" alt="">
+            </section>
+            <div class="stack1_mosaic3"></div>
+            <div class="stack2_mosaic3"></div>
+
+            <section class="mosaic_gallery quatre">
+                <img src="./Images/herbie.png" alt="">
+            </section>
+            <div class="stack1_mosaic4"></div>
+            <div class="stack2_mosaic4"></div>
+
+            <section class="mosaic_gallery cinq">
+                <img src="./Images/disco_70s.jpg" alt="">
+            </section>
+            <div class="stack1_mosaic5"></div>
+            <div class="stack2_mosaic5"></div>
+
+            <section class="mosaic_gallery six">
+                <img src="./Images/kraftwerk.jpg" alt="">
+            </section>
+            <div class="stack1_mosaic6"></div>
+            <div class="stack2_mosaic6"></div>
+
+            <section class="mosaic_gallery sept">
+                <img src="./Images/tiger.jpg" alt="">
+            </section>
+            <div class="stack1_mosaic7"></div>
+            <div class="stack2_mosaic7"></div>
+
+            <section class="mosaic_gallery tv">
+                <img src="./Images/vintage_tv.jpg" alt="">
+            </section>
+            <div class="stack1_mosaic8"></div>
+            <div class="stack2_mosaic8"></div>
+
+            <section class="mosaic_gallery neuf">
+                <img src="./Images/psychedelic.jpg" alt="">
+            </section>
+            <div class="stack1_mosaic9"></div>
+            <div class="stack2_mosaic9"></div>
+        </article>
+        <article class="github">
+            <section>
+                <a href="https://github.com/boris-tikhomiroff/module-connexion" target ="_blank">GITHUB</a>
+                <img src="./Images/chat-pixel.png" alt="">
+            </section>
+        </article>
+    </header>
+    <!-- <main></main> -->
+    <footer class="footer">
     </footer>
 </body>
 </html>
