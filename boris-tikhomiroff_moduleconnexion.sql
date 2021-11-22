@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 18 nov. 2021 à 17:05
+-- Généré le : lun. 22 nov. 2021 à 17:24
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `moduleconnexion`
+-- Base de données : `boris-tikhomiroff_moduleconnexion`
 --
 
 -- --------------------------------------------------------
@@ -31,21 +31,22 @@ DROP TABLE IF EXISTS `utilisateurs`;
 CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `login` varchar(255) NOT NULL,
-  `prenom` varchar(255) NOT NULL,
-  `nom` varchar(255) NOT NULL,
+  `prenom` varchar(255) DEFAULT NULL,
+  `nom` varchar(255) DEFAULT NULL,
   `password` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=45 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=169 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `utilisateurs`
 --
 
 INSERT INTO `utilisateurs` (`id`, `login`, `prenom`, `nom`, `password`) VALUES
-(1, 'admin', 'admin', 'admin', 'admin'),
-(42, 'test', 'test', 'test', '$2y$10$cytbGEC5x3PvZKeTQntYqOX/AJEVeV29AYvRlw9XCSZCnhks6kCJK'),
-(44, 'accueil', 'accueil', 'accueil', '$2y$10$Ew2/dhFEr0zaz8WNGMzS.u0sr2pT7Ch2P0JToJ4YybMEBNLqCxj9q'),
-(43, 'test2', 'test2', 'test2', '$2y$10$J6vHYG4V/MALCxTT4UI3c.EMrtjUhqO8Et88IBPu5Av.nLmcPTUtS');
+(63, 'admin', 'admin', 'admin', '$2y$10$eUg3OXU4WV9zFFDCgfDX..gOaCJC.8U/WZL3KoSY3Z/.r3hoTwxBm'),
+(154, 'test', 'test', 'test', '$2y$10$fdGNSxeM97ypzzGAmEE.BO20oMrzxh.59fzlxXf50dvdd9ObnCXJm'),
+(166, 'hello', '', '', '$2y$10$YcEUdAWDVM1jmvkTjmPa6unPjmmi1q.Sd/KJ4hpc5jiVwk.4XPdtW'),
+(167, 'test4', '', '', '$2y$10$dyQEFFprVvJc.oyRRzsdxOa9Dopo46gD7Am3OG.7SXAMDlYgqE/Pq'),
+(168, 'test5', '', '', '$2y$10$ug7GGwzDarZ9zdyiUqe1luS9KImwM8bG6ZnBBYSIZfsvxY84kmGiW');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

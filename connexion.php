@@ -17,7 +17,7 @@ if(isset($_POST['connexion'])){
         $login = htmlentities($_POST['username']);
         $password = htmlentities($_POST['password']);
         //on se connecte à la base de données:
-        $connect = mysqli_connect('localhost', 'root','','moduleconnexion');
+        $connect = mysqli_connect('localhost', 'root','','boris-tikhomiroff_moduleconnexion');
         mysqli_set_charset($connect, 'utf8');
         //Vérifie que la connexion s'effectue correctement:
         if(!$connect){

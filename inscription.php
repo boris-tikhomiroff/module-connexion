@@ -3,7 +3,7 @@
 session_start();
 
 // Connexion à la BDD
-$connect = mysqli_connect('localhost', 'root','','moduleconnexion');
+$connect = mysqli_connect('localhost', 'root','','boris-tikhomiroff_moduleconnexion');
 mysqli_set_charset($connect, 'utf8');
 
 //Vérifie la connexion à la BDD
