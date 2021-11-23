@@ -10,14 +10,13 @@ if(isset($_POST['connexion'])){
     // on vérifie que le champ "Pseudo" n'est pas vide
     if (empty($_POST['username'])){
         $usernameError = "*Veuillez renseigner l'username.";
-        // echo $usernameError;
     }
     else{
         // les champs sont bien posté et pas vide, on sécurise les données entrées par le membre:
         $login = htmlentities($_POST['username']);
         $password = htmlentities($_POST['password']);
         //on se connecte à la base de données:
-        $connect = mysqli_connect('localhost', 'root','','boris-tikhomiroff_moduleconnexion');
+        $connect = mysqli_connect('localhost', 'borisbdd','rootroot','boris-tikhomiroff_moduleconnexion');
         mysqli_set_charset($connect, 'utf8');
         //Vérifie que la connexion s'effectue correctement:
         if(!$connect){
@@ -28,11 +27,9 @@ if(isset($_POST['connexion'])){
             $requete = mysqli_query($connect,"SELECT * FROM `utilisateurs` WHERE `login` = '".$login."'");
             $result = mysqli_fetch_assoc($requete);
             $check_password = $result['password'];
-            // var_dump($result['password']);
             if(mysqli_num_rows($requete) == 0) 
                 {
                     $matchError ="*Le pseudo ou le mot de passe est incorrect, le compte n'a pas été trouvé.";
-                    // echo $matchError;
                 }
             //Connexioin mot de passe hash
             elseif(password_verify($password, $check_password)) {
@@ -56,7 +53,6 @@ if(isset($_POST['deconnexion'])){
     echo "Vous êtes à présent déconnecté !";
     header('Location: index.php');
 }
-// var_dump($_SESSION);
 ?>
 <!DOCTYPE html>
 <html lang="en">

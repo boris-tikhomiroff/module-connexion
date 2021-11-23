@@ -3,7 +3,7 @@
 session_start();
 
 // Connexion à la BDD
-$connect = mysqli_connect('localhost', 'root','','boris-tikhomiroff_moduleconnexion');
+$connect = mysqli_connect('localhost', 'borisbdd','rootroot','boris-tikhomiroff_moduleconnexion');
 mysqli_set_charset($connect, 'utf8');
 //Vérifie la connexion à la BDD
 if($connect === false){
@@ -17,15 +17,23 @@ if($connect === false){
 // }
 
 // Stockage des variables de session
+if (isset($_SESSION['user'])){
 $login = $_SESSION['user']['login'];
 $prenom = $_SESSION['user']['prenom'];
 $nom = $_SESSION['user']['nom'];
 $password = $_SESSION['user']['password'];
 $userId = $_SESSION['user']['id'];
-// var_dump($userId);
+}
+if (isset($_SESSION['admin'])){
+    $login = $_SESSION['admin']['login'];
+    $prenom = $_SESSION['admin']['prenom'];
+    $nom = $_SESSION['admin']['nom'];
+    $password = $_SESSION['admin']['password'];
+    $userId = $_SESSION['admin']['id'];
+}
+
 
 // si appuyer sur le boutton
-// var_dump($_SESSION);
 if (isset($_POST['modification'])){
     $newLogin = htmlspecialchars($_POST['user_login']);
     $newPrenom = htmlspecialchars($_POST['user_prenom']);

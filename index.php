@@ -135,7 +135,6 @@ if(isset($_POST['deconnexion'])){
             </section>
         </article>
     </header>
-    <!-- <main></main> -->
     <footer class="footer">
     </footer>
 </body>

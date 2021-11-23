@@ -3,7 +3,7 @@
 session_start();
 
 // Connexion à la BDD
-$connect = mysqli_connect('localhost', 'root','','boris-tikhomiroff_moduleconnexion');
+$connect = mysqli_connect('localhost', 'borisbdd','rootroot','boris-tikhomiroff_moduleconnexion');
 mysqli_set_charset($connect, 'utf8');
 
 //Vérifie la connexion à la BDD
@@ -29,7 +29,6 @@ if(isset($_POST['inscription']))
     // Si login n'est pas renseigné, afficher une erreur.
     if(empty($login)){
         $loginError = "*Veuillez renseigner votre login";
-        // echo $loginError;
     }
     //Cherche dans la BDD si le login existe déja.
     elseif(!empty($login)){
@@ -37,19 +36,15 @@ if(isset($_POST['inscription']))
         $result = mysqli_query($connect, $queryLogin);
         if(mysqli_num_rows($result) > 0){
             $loginNotAvailable = "*Le login n'est pas disponible";
-            // echo $loginNotAvailable;
         }
     }
 
      //Verifie que les deux password sont identiques
      if (empty($password)){
         $passwordError = "*Veuillez renseigner un mot de passe";
-        // echo $passwordError;
      }
      elseif($password !== $passwordCheck){
          $passwordError2 = "*Veuillez renseigner le même mot de passe";
-        //  echo $passwordError2;
-        //  echo "hi";
      }
 
     // Si tout les testes sont passées, envoi la requete
